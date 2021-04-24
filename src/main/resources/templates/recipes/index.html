@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+</head>
+<body>
+<!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
+<h2>My Favorite Recipes</h2>
+
+<div th:each="recipe: ${recipes}">
+    <ul>
+        <li th:text="${recipe.description}"></li>
+        <li th:text="'Prep Time: ' + ${recipe.prepTime} + ' minutes'"></li>
+        <li th:text="'Cook Time: ' + ${recipe.cookTime} + ' minutes'"></li>
+        <li th:text="'Servings: ' + ${recipe.servings}"></li>
+        <li th:text="'Difficulty: ' + ${recipe.difficulty}"></li>
+        <li th:text="'Source: ' + ${recipe.source}"></li>
+        <li th:text="'URL: ' + ${recipe.url}"></li>
+        <li th:text="'Direction :' + ${recipe.directions}"></li>
+        <li th:text="'Notes: ' + ${recipe.notes.recipeNotes}"></li>
+        <li th:text="'Ingredients:'"></li>
+        <div th:each="ingredient: ${recipe.ingredients}">
+        <ul>
+            <li th:text="${ingredient.amount} + ' ' + ${ingredient.unitOfMeasure.description} + ' ' + ${ingredient.description}"></li>
+        </ul>
+    </ul>
+</div>
+
+</body>
+</html>

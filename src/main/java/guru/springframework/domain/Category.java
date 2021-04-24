@@ -1,12 +1,15 @@
 package guru.springframework.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
@@ -15,5 +18,5 @@ public class Category {
     private String description;
 
     @ManyToMany(mappedBy = "categories")
-    private Set<Recipe> recipes;
+    private Set<Recipe> recipes = new HashSet<>();
 }

@@ -1,12 +1,15 @@
 package guru.springframework.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,13 +21,15 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+
+    @Lob
     private String directions;
 
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     @Lob
     private Byte[] image;
@@ -38,5 +43,5 @@ public class Recipe {
             joinColumns = @JoinColumn(name = "recipe_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 }
