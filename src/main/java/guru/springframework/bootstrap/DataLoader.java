@@ -6,6 +6,7 @@ import guru.springframework.repositories.CategoryRepository;
 import guru.springframework.repositories.RecipeRepository;
 import guru.springframework.repositories.UnitOfMeasureRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.cache.annotation.EnableCaching;
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 @EnableCaching
@@ -59,7 +61,7 @@ public class DataLoader implements ApplicationRunner {
 
         // Save to repository.
         recipeRepository.save(guacamole);
-        System.out.println("Saved Recipe: guacamole");
+        log.debug("Saved Recipe: guacamole");
 
         Recipe chickenTaco = new Recipe();
         chickenTaco.setDescription("Chicken Tacos");
@@ -103,7 +105,7 @@ public class DataLoader implements ApplicationRunner {
         setIngredients(chickenTaco, ingredientStrings);
 
         recipeRepository.save(chickenTaco);
-        System.out.println("Saved Recipe: Chicken Taco");
+        log.debug("Saved Recipe: Chicken Taco");
     }
 
     private void setNotes(Recipe recipe, String notesStr) {
