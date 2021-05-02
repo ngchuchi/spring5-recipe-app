@@ -2,7 +2,7 @@ package guru.springframework.controllers;
 
 import guru.springframework.domain.Recipe;
 import guru.springframework.services.RecipeService;
-import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
@@ -15,12 +15,13 @@ import org.springframework.ui.Model;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-public class IndexController_v2Test extends TestCase {
+public class IndexController_v2Test {
     @Mock
     RecipeService recipeService;
 
@@ -29,6 +30,7 @@ public class IndexController_v2Test extends TestCase {
 
     IndexController indexController;
 
+    @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         indexController = new IndexController(recipeService);

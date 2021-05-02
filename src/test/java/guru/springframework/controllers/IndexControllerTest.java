@@ -3,6 +3,8 @@ package guru.springframework.controllers;
 import guru.springframework.domain.Recipe;
 import guru.springframework.services.RecipeService;
 import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.ExtendedModelMap;
@@ -12,19 +14,23 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
-public class IndexControllerTest extends TestCase {
+public class IndexControllerTest {
     IndexController indexController;
 
     @Mock
     RecipeService recipeService;
 
+    @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         indexController = new IndexController(recipeService);
     }
 
+    @Test
     public void testIndex() {
         // Prepare the mocked objects
         Recipe recipe = new Recipe();
