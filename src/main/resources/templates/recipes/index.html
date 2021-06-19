@@ -23,9 +23,10 @@
         <li th:text="'Notes: ' + ${recipe.notes.recipeNotes}"></li>
         <li th:text="'Ingredients:'"></li>
         <div th:each="ingredient: ${recipe.ingredients}">
-        <ul>
-            <li th:text="${ingredient.amount} + ' ' + ${ingredient.unitOfMeasure.description} + ' ' + ${ingredient.description}"></li>
-        </ul>
+            <ul>
+                <li th:text="${ingredient.amount} + ' ' + ${ingredient.unitOfMeasure.description} + ' ' + ${ingredient.description}"></li>
+            </ul>
+        </div>
     </ul>
 </div>
 
