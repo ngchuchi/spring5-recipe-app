@@ -32,8 +32,9 @@ public class DataLoader implements ApplicationRunner {
 
         Recipe guacamole = new Recipe();
         guacamole.setDescription("Guacamole");
-        guacamole.setPrepTime(10);
-        guacamole.setCookTime(10);
+        guacamole.setPrepTime(20);
+        guacamole.setCookTime(30);
+        guacamole.setSource("Simply Recipes");
         guacamole.setServings(4);
         guacamole.setDifficulty(Difficulty.EASY);
         guacamole.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
@@ -69,7 +70,7 @@ public class DataLoader implements ApplicationRunner {
         chickenTaco.setCookTime(15);
         chickenTaco.setServings(6);
         chickenTaco.setDifficulty(Difficulty.MODERATE);
-        chickenTaco.setSource("");
+        chickenTaco.setSource("Simply Recipes");
         chickenTaco.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
         chickenTaco.setDirections("Chicken Taco Direction...");
 
