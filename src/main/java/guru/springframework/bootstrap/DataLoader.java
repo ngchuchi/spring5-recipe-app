@@ -132,7 +132,7 @@ public class DataLoader implements ApplicationRunner {
 
             Ingredient ingredient = new Ingredient();
             ingredient.setAmount(new BigDecimal(qtyStr));
-            ingredient.setUnitOfMeasure(findUnitOfMeasure(uomStr));
+            ingredient.setUom(findUnitOfMeasure(uomStr));
             ingredient.setDescription(desStr);
             ingredient.setRecipe(recipe);
             recipe.getIngredients().add(ingredient);

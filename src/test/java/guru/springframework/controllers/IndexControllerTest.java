@@ -2,7 +2,6 @@ package guru.springframework.controllers;
 
 import guru.springframework.domain.Recipe;
 import guru.springframework.services.RecipeService;
-import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -49,6 +48,6 @@ public class IndexControllerTest {
         verify(recipeService, times(1)).getRecipes();
 
         // Verify index method return the correct view name, "recipes/index"
-        assertEquals("recipes/index", viewName);
+        assertEquals("index", viewName);
     }
 }

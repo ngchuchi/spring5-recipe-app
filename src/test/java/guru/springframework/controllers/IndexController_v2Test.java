@@ -42,7 +42,7 @@ public class IndexController_v2Test {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("recipes/index"));
+                .andExpect(view().name("index"));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class IndexController_v2Test {
 
         // Then
         // Verify correct view name is returned and interaction with service method and add-attribute method are correct.
-        assertEquals("recipes/index", viewName);
+        assertEquals("index", viewName);
         verify(recipeService, times(1)).getRecipes();
 
         ArgumentCaptor<Set<Recipe>> argumentCaptor = ArgumentCaptor.forClass(Set.class);
